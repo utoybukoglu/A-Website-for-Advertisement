@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Registration{% endblock %}
+
+{% block head_extra %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
+    <script src="{{ url_for('static', filename='register.js') }}" defer></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="form-box">
+            <form action="/register" method="POST" name="Formfill" onsubmit="return validation()">
+                <h2>REGISTER</h2>
+                <div class="input-box">
+                    <input type="text" name="Username" placeholder="Username">
+                </div>
+                <div class="input-box">
+                    <input type="password" name="Password" placeholder="Password">
+                </div>
+                <div class="input-box">
+                    <input type="text" name="Fullname" placeholder="Fullname">
+                </div>
+                <div class="input-box">
+                    <input type="email" name="Email" placeholder="Email">
+                </div>
+                <div class="input-box">
+                    <input type="tel" name="telephoneNo" placeholder="Phone Number">
+                </div>
+                <div class="button">
+                    <input type="submit" value="Register">
+                </div>
+                <span id="result"></span> <!-- js error -->
+                {% if message %} <!-- database error -->
+                    <p class="{% if 'Successfully registered' in message %}success-message{% else %}error-message{% endif %}">{{ message }}</p>
+                {% endif %}  
+            </form>
+            <div class="login-link">
+                <a href="/login">Already have an account? Login here</a>
+            </div>
+            <div class="homepage-link">
+                <a href="/">Homepage</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

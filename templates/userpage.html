@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block head_extra %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='userpage.css') }}">
+{% endblock %}
+
+{% block content %}
+    <section>
+        <h2>WELCOME {{ username }}</h2>
+        <p>Choose an option below:</p>
+        <ul>
+            <li><a href="/">Homepage</a></li>
+            <li><a href="/myadv">My Advertisements</a></li>
+            <li><a href="/myprofile">My Profile</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </section>
+{% endblock %}
